@@ -6,7 +6,7 @@ services:
     name: cx-support-assistant
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt && python -m evals.run_evals || true
+    buildCommand: pip install -r requirements.txt && python -m evals.run_evals --provider mock || true
     startCommand: uvicorn apps.rag_assistant.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /api/health
     envVars:
