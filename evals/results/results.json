@@ -1,0 +1,829 @@
+{
+  "rows": [
+    {
+      "id": "q01",
+      "question": "My battery stops charging at 80 percent, is it broken?",
+      "answer": "Here's what our support guides say: A battery that stops charging at 80% is usually not a fault: Battery Conservation Mode is enabled. [KB-001#1] The battery icon shows \"plugged in, not charging\", the charge level stays the same while connected, or a full charge takes more than 4 hours. [KB-001#1] This clears the embedded controller and fixes most \"not charging\" cases after a firmware update. [KB-001#3]",
+      "confidence": 0.833,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-001"
+      ],
+      "retrieved_docs": [
+        "KB-001"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 1,
+      "handoff_reason": null
+    },
+    {
+      "id": "q02",
+      "question": "Can I charge my Aurora Book 14 with a 20W phone charger?",
+      "answer": "Here's what our support guides say: Confirm the charger is the original 65W USB-C adapter (Aurora Book 14, Edge X1) or 100W adapter (Book Pro 16). [KB-001#2] Phone chargers under 45W charge very slowly or not at all. [KB-001#2] The battery icon shows \"plugged in, not charging\", the charge level stays the same while connected, or a full charge takes more than 4 hours. [KB-001#1]",
+      "confidence": 0.684,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-001"
+      ],
+      "retrieved_docs": [
+        "KB-001",
+        "KB-005"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 1,
+      "handoff_reason": null
+    },
+    {
+      "id": "q03",
+      "question": "How do I do a battery reset when it won't charge?",
+      "answer": "Here's what our support guides say: The battery icon shows \"plugged in, not charging\", the charge level stays the same while connected, or a full charge takes more than 4 hours. [KB-001#1] A battery that stops charging at 80% is usually not a fault: Battery Conservation Mode is enabled. [KB-001#1] Shut the laptop down, unplug the charger, then press and hold the power button for 15 seconds. [KB-001#3]",
+      "confidence": 0.592,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-001"
+      ],
+      "retrieved_docs": [
+        "KB-001"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 1,
+      "handoff_reason": null
+    },
+    {
+      "id": "q04",
+      "question": "Is battery replacement covered after 18 months?",
+      "answer": "Here's what our support guides say: If health is below 60% of design capacity, or the battery health status reads \"Replace\", the battery is eligible for replacement under warranty during the first 12 months. [KB-001#4] After 12 months the battery is a consumable part and replacement is chargeable unless you has Premium Care. [KB-001#4] Run the Battery Health test in Aurora Vantage. [KB-001#4]",
+      "confidence": 0.713,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-001"
+      ],
+      "retrieved_docs": [
+        "KB-001",
+        "KB-002"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 1,
+      "handoff_reason": null
+    },
+    {
+      "id": "q05",
+      "question": "Where do I find my serial number?",
+      "answer": "Here's what our support guides say: The serial number is on the label under the device, in Aurora Vantage > Device, or by running `wmic bios get serialnumber` in Command Prompt. [KB-002#1] Aurora serial numbers are 10 characters, starting with two letters followed by eight digits or letters, for example PF3A9K2L01. [KB-002#1]",
+      "confidence": 0.932,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-002"
+      ],
+      "retrieved_docs": [
+        "KB-002",
+        "KB-013",
+        "KB-015"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q06",
+      "question": "What does Premier Support include?",
+      "answer": "Here's what our support guides say: Available with Premium Care and Premier Support. [KB-012#2] Premier Support targets next business day onsite service when the case is logged before 3 pm local time. [KB-012#2]",
+      "confidence": 0.569,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-002"
+      ],
+      "retrieved_docs": [
+        "KB-012",
+        "KB-003",
+        "KB-013"
+      ],
+      "hit_at_3": false,
+      "reciprocal_rank": 0.0,
+      "citation_ok": false,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q07",
+      "question": "My warranty expired last week, can I still extend it?",
+      "answer": "Here's what our support guides say: If the warranty has expired, you can still get a paid repair quote or buy a warranty extension within 30 days of expiry without an inspection. [KB-002#4] Physical damage, liquid damage, cosmetic wear, and software issues caused by third-party applications are not covered by Base Warranty. [KB-002#3] After 30 days, an extension requires a remote diagnostic first. [KB-002#4]",
+      "confidence": 0.579,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-002"
+      ],
+      "retrieved_docs": [
+        "KB-002",
+        "KB-005"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q08",
+      "question": "How many accidental damage claims can a consumer make per year?",
+      "answer": "Here's what our support guides say: Business you with Premier Support get two claims per 12-month period. [KB-003#2] Consumers get one ADP claim per 12-month period. [KB-003#2] ADP covers drops, spills, electrical surges, and cracked screens from accidental use. [KB-003#1]",
+      "confidence": 0.556,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-003"
+      ],
+      "retrieved_docs": [
+        "KB-003"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 1,
+      "handoff_reason": null
+    },
+    {
+      "id": "q09",
+      "question": "I spilled coffee on the keyboard, what should I do?",
+      "answer": "Here's what our support guides say: If the keyboard works in BIOS, the problem is a Windows driver; reinstall it from Aurora Vantage. [KB-010#1]",
+      "confidence": 0.378,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-003",
+        "KB-010"
+      ],
+      "retrieved_docs": [
+        "KB-010",
+        "KB-005",
+        "KB-001"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": false,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q10",
+      "question": "Does accidental damage protection cover theft?",
+      "answer": "Here's what our support guides say: It does not cover theft, loss, intentional damage, or cosmetic damage that does not affect function. [KB-003#1] ADP covers drops, spills, electrical surges, and cracked screens from accidental use. [KB-003#1] The serial number, a short description of how the damage happened, the date it happened, and photos of the damage. [KB-003#3]",
+      "confidence": 0.985,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-003"
+      ],
+      "retrieved_docs": [
+        "KB-003",
+        "KB-002",
+        "KB-009"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q11",
+      "question": "Blue screen INACCESSIBLE_BOOT_DEVICE after BIOS update",
+      "answer": "Here's what our support guides say: The device restarts with a blue screen showing a stop code such as DRIVER_IRQL_NOT_LESS_OR_EQUAL or INACCESSIBLE_BOOT_DEVICE, often within a day of an update. [KB-004#1] INACCESSIBLE_BOOT_DEVICE after a BIOS update: enter BIOS (press F2 at startup) and confirm the storage mode is set to \"NVMe/AHCI\", not RAID. [KB-004#2] If Windows still boots, open Aurora Vantage > Updates and roll back the most recent driver, or uninstall the latest Windows update in Settings > Windows Update > Update history. [KB-004#2]",
+      "confidence": 0.966,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-004"
+      ],
+      "retrieved_docs": [
+        "KB-004",
+        "KB-007"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 1,
+      "handoff_reason": null
+    },
+    {
+      "id": "q12",
+      "question": "How do I uninstall a Windows update if the laptop keeps crashing with a blue screen?",
+      "answer": "Here's what our support guides say: If Windows still boots, open Aurora Vantage > Updates and roll back the most recent driver, or uninstall the latest Windows update in Settings > Windows Update > Update history. [KB-004#2] The device restarts with a blue screen showing a stop code such as DRIVER_IRQL_NOT_LESS_OR_EQUAL or INACCESSIBLE_BOOT_DEVICE, often within a day of an update. [KB-004#1] If Windows does not boot, interrupt startup three times to open Windows Recovery Environment, then choose Troubleshoot > Advanced options > Uninstall Updates. [KB-004#2]",
+      "confidence": 0.733,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-004"
+      ],
+      "retrieved_docs": [
+        "KB-004",
+        "KB-007"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 1,
+      "handoff_reason": null
+    },
+    {
+      "id": "q13",
+      "question": "My laptop won't turn on at all, nothing happens",
+      "answer": "Here's what our support guides say: If nothing responds after a hard reset with a known-good charger, the device needs a hardware repair. [KB-005#4] Flicker that happens only in some apps is usually a graphics driver issue: update or roll back the graphics driver. [KB-009#1]",
+      "confidence": 0.33,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-005"
+      ],
+      "retrieved_docs": [
+        "KB-005",
+        "KB-009",
+        "KB-007"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": false,
+      "keywords_ok": false,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q14",
+      "question": "Where is the emergency reset pinhole on the Edge X1?",
+      "answer": "Here's what our support guides say: On the Aurora Edge X1, there is also an emergency reset pinhole on the bottom panel: press it for 10 seconds with a paperclip. [KB-005#2] Unplug the charger, press and hold the power button for 30 seconds, plug the charger back in, wait 5 minutes, and press the power button once. [KB-005#2]",
+      "confidence": 0.946,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-005"
+      ],
+      "retrieved_docs": [
+        "KB-005",
+        "KB-012",
+        "KB-001"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q15",
+      "question": "Wi-Fi keeps disconnecting every few minutes",
+      "answer": "Here's what our support guides say: Most Wi-Fi drops come from power-saving settings on the wireless adapter, an outdated Wi-Fi driver, or router band steering between 2.4 GHz and 5 GHz. [KB-006#1] If the Wi-Fi option is missing completely from Windows, or Device Manager shows no wireless adapter after a BIOS reset, the wireless card may have failed. [KB-006#3] Update the Wi-Fi driver through Aurora Vantage > Updates. [KB-006#2]",
+      "confidence": 0.592,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-006"
+      ],
+      "retrieved_docs": [
+        "KB-006",
+        "KB-012"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": false,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q16",
+      "question": "Will I need my BitLocker recovery key after a BIOS update?",
+      "answer": "Here's what our support guides say: If you is asked for a BitLocker recovery key, they can find it at their Microsoft account under Devices > Manage recovery keys, or from their company IT department for business devices. [KB-007#4] Suspend BitLocker first (Control Panel > BitLocker > Suspend protection) or you will be asked for the BitLocker recovery key after the update. [KB-007#1] Aurora support cannot retrieve or bypass BitLocker keys. [KB-007#4]",
+      "confidence": 1.0,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-007"
+      ],
+      "retrieved_docs": [
+        "KB-007",
+        "KB-004"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q17",
+      "question": "Can support retrieve my BitLocker recovery key for me?",
+      "answer": "Here's what our support guides say: If you is asked for a BitLocker recovery key, they can find it at their Microsoft account under Devices > Manage recovery keys, or from their company IT department for business devices. [KB-007#4] Aurora support cannot retrieve or bypass BitLocker keys. [KB-007#4] Suspend BitLocker first (Control Panel > BitLocker > Suspend protection) or you will be asked for the BitLocker recovery key after the update. [KB-007#1]",
+      "confidence": 1.0,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-007"
+      ],
+      "retrieved_docs": [
+        "KB-007",
+        "KB-016"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q18",
+      "question": "The fan is really loud during video calls, is that normal?",
+      "answer": "Here's what our support guides say: The fans speed up during video calls, gaming, or compiling, and the bottom of the laptop can reach 45\u00b0C under load. [KB-008#1] If the laptop shuts down from heat during light use, or the fan makes a grinding or clicking noise, the fan or thermal paste needs service under warranty. [KB-008#3] Update the BIOS and embedded controller firmware (KB-007), which contain fan curve fixes. [KB-008#2]",
+      "confidence": 0.718,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-008"
+      ],
+      "retrieved_docs": [
+        "KB-008",
+        "KB-007"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": false,
+      "latency_ms": 1,
+      "handoff_reason": null
+    },
+    {
+      "id": "q19",
+      "question": "How many dead pixels before the screen is replaced?",
+      "answer": "Here's what our support guides say: A display is eligible for replacement under warranty if it has 3 or more bright pixels, 5 or more dark pixels, or any bright pixel in the central area of the screen. [KB-009#2] Fewer defects than this are within the panel specification and are not replaced. [KB-009#2] Flicker or lines that also appear in the BIOS screen (press F2 at startup) point to a hardware fault in the panel or display cable. [KB-009#1]",
+      "confidence": 0.844,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-009"
+      ],
+      "retrieved_docs": [
+        "KB-009",
+        "KB-014"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q20",
+      "question": "My trackpad is raised and won't click",
+      "answer": "Here's what our support guides say: A trackpad that is raised, stiff, or does not click can be a sign of a swollen battery underneath. [KB-010#2] Check that the trackpad is not disabled with the F6 trackpad toggle key. [KB-010#1]",
+      "confidence": 0.875,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-010",
+        "KB-001"
+      ],
+      "retrieved_docs": [
+        "KB-010",
+        "KB-001"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q21",
+      "question": "How long do I have to return a laptop bought from the online store?",
+      "answer": "Here's what our support guides say: Customers can return a device within 30 days of delivery for a full refund, as long as it is in its original condition with all accessories. [KB-011#1] Devices bought from retailers must be returned to that retailer. [KB-011#1]",
+      "confidence": 0.718,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-011"
+      ],
+      "retrieved_docs": [
+        "KB-011",
+        "KB-002",
+        "KB-001"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q22",
+      "question": "Is there a restocking fee for a custom configured laptop?",
+      "answer": "Here's what our support guides say: Opened devices with a custom configuration (CTO) carry a 15% restocking fee. [KB-011#2] There is no restocking fee for unopened devices. [KB-011#2] Devices with physical damage cannot be returned. [KB-011#2]",
+      "confidence": 0.875,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-011"
+      ],
+      "retrieved_docs": [
+        "KB-011",
+        "KB-003",
+        "KB-001"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q23",
+      "question": "How long does a depot repair take?",
+      "answer": "Here's what our support guides say: Target turnaround is 5 to 7 business days from when the depot receives the device. [KB-012#1] Base Warranty: 12 months parts and labour, depot (mail-in) repair. [KB-002#2] Premium Care: 24 or 36 months, onsite or depot repair, 24/7 phone support, battery covered for the full term. [KB-002#2]",
+      "confidence": 0.533,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-012"
+      ],
+      "retrieved_docs": [
+        "KB-012",
+        "KB-002",
+        "KB-005"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": false,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q24",
+      "question": "Can Premier Support customers keep their old hard drive after repair?",
+      "answer": "Here's what our support guides say: Premier Support you can choose the \"Keep Your Drive\" option: the technician replaces a failed drive and you keeps the old one, for data security. [KB-013#2] Repairs can involve replacing or reimaging the storage drive. [KB-013#1] Ask you to back up their files before sending a device for repair. [KB-013#1]",
+      "confidence": 0.938,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-013"
+      ],
+      "retrieved_docs": [
+        "KB-013",
+        "KB-012",
+        "KB-003"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q25",
+      "question": "How many 4K monitors does the Dock U3 support?",
+      "answer": "Here's what our support guides say: The Aurora Dock U3 supports up to two 4K monitors at 60 Hz; a third monitor will not display. [KB-014#1] The Aurora Dock U3 supplies 90W. [KB-014#2] Update the dock firmware and the laptop's graphics and Thunderbolt drivers through Aurora Vantage. [KB-014#1]",
+      "confidence": 0.689,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-014"
+      ],
+      "retrieved_docs": [
+        "KB-014",
+        "KB-012"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q26",
+      "question": "What is the first response SLA for a P2 case?",
+      "answer": "Here's what our support guides say: First response: P1 within 1 hour, P2 within 4 hours, P3 within 8 hours, P4 within 24 hours. [KB-015#2] Resolution: P1 within 24 hours, P2 within 48 hours, P3 within 5 days, P4 within 7 days. [KB-015#2] P2 High: a single device unusable with you data at risk, or a Premier Support you with a device down. [KB-015#1]",
+      "confidence": 0.809,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-015"
+      ],
+      "retrieved_docs": [
+        "KB-015"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 1,
+      "handoff_reason": null
+    },
+    {
+      "id": "q27",
+      "question": "How do I factory reset before selling my laptop?",
+      "answer": "Here's what our support guides say: Go to Settings > System > Recovery > Reset this PC. [KB-016#1] \"Remove everything\" erases the drive and is the right choice before selling or returning a device. [KB-016#1] Interrupt startup three times to open Windows Recovery Environment, then choose Troubleshoot > Reset this PC. [KB-016#2]",
+      "confidence": 0.825,
+      "handoff": false,
+      "should_handoff": false,
+      "expected_docs": [
+        "KB-016"
+      ],
+      "retrieved_docs": [
+        "KB-016",
+        "KB-005"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": null
+    },
+    {
+      "id": "q28",
+      "question": "My battery is swollen and the case is lifting",
+      "answer": "Here's what our support guides say: If the case is lifting, the trackpad is pushed up, or there is a hissing sound or burning smell, stop using the device and unplug it immediately. [KB-001#5] The battery icon shows \"plugged in, not charging\", the charge level stays the same while connected, or a full charge takes more than 4 hours. [KB-001#1] A battery that stops charging at 80% is usually not a fault: Battery Conservation Mode is enabled. [KB-001#1]\n\nFor your safety, please stop using the device and unplug it now. I've flagged this as urgent and a specialist will contact you.",
+      "confidence": 0.891,
+      "handoff": true,
+      "should_handoff": true,
+      "expected_docs": [
+        "KB-001"
+      ],
+      "retrieved_docs": [
+        "KB-001",
+        "KB-010",
+        "KB-015"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": true,
+      "latency_ms": 0,
+      "handoff_reason": "Safety risk detected: escalated as P1 per KB-015."
+    },
+    {
+      "id": "q29",
+      "question": "There is smoke coming from the charging port",
+      "answer": "Here's what our support guides say: Check the charging LED next to the USB-C port: solid white means charging, blinking amber means a charging fault. [KB-001#2] Open Aurora Vantage > Power and turn off Battery Conservation Mode if you wants charging to 100%. [KB-001#2] The battery icon shows \"plugged in, not charging\", the charge level stays the same while connected, or a full charge takes more than 4 hours. [KB-001#1]\n\nFor your safety, please stop using the device and unplug it now. I've flagged this as urgent and a specialist will contact you.",
+      "confidence": 0.374,
+      "handoff": true,
+      "should_handoff": true,
+      "expected_docs": [
+        "KB-001",
+        "KB-015"
+      ],
+      "retrieved_docs": [
+        "KB-001",
+        "KB-015"
+      ],
+      "hit_at_3": true,
+      "reciprocal_rank": 1.0,
+      "citation_ok": true,
+      "keywords_ok": null,
+      "latency_ms": 1,
+      "handoff_reason": "Safety risk detected: escalated as P1 per KB-015."
+    },
+    {
+      "id": "q30",
+      "question": "Can you recommend a good pizza place near me?",
+      "answer": "I don't want to guess on this one. I'm passing your question to a support specialist with the details so you won't need to repeat yourself.",
+      "confidence": 0.0,
+      "handoff": true,
+      "should_handoff": true,
+      "expected_docs": [],
+      "retrieved_docs": [
+        "KB-001"
+      ],
+      "hit_at_3": null,
+      "reciprocal_rank": null,
+      "citation_ok": null,
+      "keywords_ok": null,
+      "latency_ms": 0,
+      "handoff_reason": "Low retrieval confidence (0.00 < 0.30)."
+    },
+    {
+      "id": "q31",
+      "question": "What is your stock price today?",
+      "answer": "I don't want to guess on this one. I'm passing your question to a support specialist with the details so you won't need to repeat yourself.",
+      "confidence": 0.0,
+      "handoff": true,
+      "should_handoff": true,
+      "expected_docs": [],
+      "retrieved_docs": [
+        "KB-001"
+      ],
+      "hit_at_3": null,
+      "reciprocal_rank": null,
+      "citation_ok": null,
+      "keywords_ok": null,
+      "latency_ms": 0,
+      "handoff_reason": "Low retrieval confidence (0.00 < 0.30)."
+    },
+    {
+      "id": "q32",
+      "question": "I want to speak to your CEO about a lawsuit",
+      "answer": "I don't want to guess on this one. I'm passing your question to a support specialist with the details so you won't need to repeat yourself.",
+      "confidence": 0.0,
+      "handoff": true,
+      "should_handoff": true,
+      "expected_docs": [],
+      "retrieved_docs": [
+        "KB-001"
+      ],
+      "hit_at_3": null,
+      "reciprocal_rank": null,
+      "citation_ok": null,
+      "keywords_ok": null,
+      "latency_ms": 0,
+      "handoff_reason": "Low retrieval confidence (0.00 < 0.30)."
+    },
+    {
+      "id": "q33",
+      "question": "Does Microsoft Office come preinstalled with a lifetime license?",
+      "answer": "I don't want to guess on this one. I'm passing your question to a support specialist with the details so you won't need to repeat yourself.",
+      "confidence": 0.258,
+      "handoff": true,
+      "should_handoff": true,
+      "expected_docs": [],
+      "retrieved_docs": [
+        "KB-006",
+        "KB-007",
+        "KB-001"
+      ],
+      "hit_at_3": null,
+      "reciprocal_rank": null,
+      "citation_ok": null,
+      "keywords_ok": null,
+      "latency_ms": 0,
+      "handoff_reason": "Low retrieval confidence (0.26 < 0.30)."
+    },
+    {
+      "id": "q34",
+      "question": "Can I install Linux and still keep my GPU drivers working with CUDA 13?",
+      "answer": "I don't want to guess on this one. I'm passing your question to a support specialist with the details so you won't need to repeat yourself.",
+      "confidence": 0.193,
+      "handoff": true,
+      "should_handoff": true,
+      "expected_docs": [],
+      "retrieved_docs": [
+        "KB-013",
+        "KB-016",
+        "KB-014"
+      ],
+      "hit_at_3": null,
+      "reciprocal_rank": null,
+      "citation_ok": null,
+      "keywords_ok": null,
+      "latency_ms": 0,
+      "handoff_reason": "Low retrieval confidence (0.19 < 0.30)."
+    },
+    {
+      "id": "q35",
+      "question": "What's the weather in Kuala Lumpur?",
+      "answer": "I don't want to guess on this one. I'm passing your question to a support specialist with the details so you won't need to repeat yourself.",
+      "confidence": 0.0,
+      "handoff": true,
+      "should_handoff": true,
+      "expected_docs": [],
+      "retrieved_docs": [
+        "KB-001"
+      ],
+      "hit_at_3": null,
+      "reciprocal_rank": null,
+      "citation_ok": null,
+      "keywords_ok": null,
+      "latency_ms": 0,
+      "handoff_reason": "Low retrieval confidence (0.00 < 0.30)."
+    },
+    {
+      "id": "q36",
+      "question": "Do you ship to Antarctica and how much is shipping to McMurdo station?",
+      "answer": "I don't want to guess on this one. I'm passing your question to a support specialist with the details so you won't need to repeat yourself.",
+      "confidence": 0.253,
+      "handoff": true,
+      "should_handoff": true,
+      "expected_docs": [],
+      "retrieved_docs": [
+        "KB-012",
+        "KB-014",
+        "KB-013"
+      ],
+      "hit_at_3": null,
+      "reciprocal_rank": null,
+      "citation_ok": null,
+      "keywords_ok": null,
+      "latency_ms": 0,
+      "handoff_reason": "Low retrieval confidence (0.25 < 0.30)."
+    }
+  ],
+  "metrics": {
+    "n": 36,
+    "retrieval_hit_at_3": 0.966,
+    "retrieval_mrr": 0.966,
+    "citation_precision": 0.897,
+    "answer_keyword_recall": 0.857,
+    "handoff_precision": 1.0,
+    "handoff_recall": 1.0,
+    "handoff_accuracy": 1.0,
+    "latency_p50_ms": 0,
+    "latency_p95_ms": 1
+  },
+  "curve": [
+    {
+      "threshold": 0.1,
+      "precision": 1.0,
+      "recall": 0.571,
+      "false_handoffs": 0
+    },
+    {
+      "threshold": 0.2,
+      "precision": 1.0,
+      "recall": 0.714,
+      "false_handoffs": 0
+    },
+    {
+      "threshold": 0.25,
+      "precision": 1.0,
+      "recall": 0.714,
+      "false_handoffs": 0
+    },
+    {
+      "threshold": 0.3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_handoffs": 0
+    },
+    {
+      "threshold": 0.35,
+      "precision": 0.875,
+      "recall": 1.0,
+      "false_handoffs": 1
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.778,
+      "recall": 1.0,
+      "false_handoffs": 2
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.778,
+      "recall": 1.0,
+      "false_handoffs": 2
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.467,
+      "recall": 1.0,
+      "false_handoffs": 8
+    }
+  ],
+  "mode": "demo mode (no LLM)",
+  "generated_at": "2026-10-21 14:18 UTC",
+  "thresholds": {
+    "retrieval_hit_at_3": 0.9,
+    "retrieval_mrr": 0.85,
+    "citation_precision": 0.8,
+    "answer_keyword_recall": 0.7,
+    "handoff_precision": 0.9,
+    "handoff_recall": 1.0,
+    "handoff_accuracy": 0.9
+  },
+  "gate_failures": []
+}

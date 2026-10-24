@@ -1,0 +1,51 @@
+# Render Blueprint: deploys all four web apps from this repo in one go.
+# Render dashboard > New > Blueprint > pick this repo. Free plan instances sleep after
+# ~15 minutes idle and take ~30-60 s to wake on the first visit.
+services:
+  - type: web
+    name: cx-support-assistant
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python -m evals.run_evals || true
+    startCommand: uvicorn apps.rag_assistant.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - fromGroup: cx-ai-keys
+
+  - type: web
+    name: cx-triage-agent
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn apps.triage_agent.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - fromGroup: cx-ai-keys
+
+  - type: web
+    name: cx-sla-dashboard
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run apps/sla_dashboard/app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - fromGroup: cx-ai-keys
+
+  - type: web
+    name: cx-qa-analyzer
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run apps/qa_analyzer/app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - fromGroup: cx-ai-keys
+
+envVarGroups:
+  - name: cx-ai-keys
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.1
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: CX_REPO_URL
+        sync: false

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support Knowledge Assistant</title>
+<meta name="description" content="RAG support assistant with citations, confidence scoring and human handoff.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/static/suite.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="topbar">
+    <div>
+      <p class="eyebrow">CX AI Suite · Project 1</p>
+      <h1>Support Knowledge Assistant</h1>
+      <p class="muted">Answers customer questions from the support knowledge base, cites its sources, and hands off to a human when it isn't confident.</p>
+    </div>
+    <div class="links">
+      <span id="mode" class="pill">checking…</span>
+      <a class="pill" href="/evals">Eval report</a>
+      <a class="pill" href="/docs">API docs</a>
+      <a class="pill" id="repo" href="#">Source</a>
+    </div>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <div id="chat" class="chat" aria-live="polite">
+        <div class="msg bot">Hi! Ask me anything about Aurora laptops: charging, warranty, repairs, returns, blue screens and more. I only answer from our support guides, and I'll pass you to a person if they don't cover it.</div>
+      </div>
+      <form id="form" class="row" style="margin-top:14px">
+        <input id="q" placeholder="e.g. My battery stops charging at 80%" autocomplete="off" style="flex:1;min-width:200px" required minlength="3">
+        <button id="send">Ask</button>
+      </form>
+      <div class="chips" id="examples"></div>
+    </section>
+
+    <aside class="card">
+      <h3>Why this answer</h3>
+      <p class="muted small" id="why-empty">Ask a question to see the retrieved knowledge base passages, their scores, and the confidence check that decides answer vs handoff.</p>
+      <div id="why" hidden>
+        <div class="row small" style="justify-content:space-between"><span>Retrieval confidence</span><span id="conf" class="mono"></span></div>
+        <div class="bar" style="margin:6px 0 4px"><span id="confbar" style="width:0"></span></div>
+        <p class="muted small" id="threshold"></p>
+        <div id="sources"></div>
+        <p class="muted small mono" id="latency"></p>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    Hybrid search (BM25 + vector embeddings, fused with reciprocal rank fusion) over 16 synthetic knowledge base articles for a fictional laptop brand.
+    Built with Python, FastAPI and Azure OpenAI / OpenAI / Gemini. · <a id="portfolio" href="#">Portfolio</a>
+  </footer>
+</main>
+
+<script>
+const examples = [
+  "My battery stops charging at 80%, is it broken?",
+  "How many dead pixels before the screen is replaced?",
+  "Will I need my BitLocker key after a BIOS update?",
+  "My battery is swollen and the case is lifting",
+  "Can you recommend a good pizza place?",
+];
+const $ = (id) => document.getElementById(id);
+const chat = $("chat");
+let threshold = 0.3;
+
+fetch("/api/health").then(r => r.json()).then(h => {
+  threshold = h.handoff_threshold;
+  const live = !h.mode.startsWith("demo");
+  $("mode").textContent = live ? "LLM: " + h.mode : "demo mode · no API key";
+  $("mode").className = "pill " + (live ? "live" : "demo");
+  $("repo").href = h.repo_url; $("portfolio").href = h.portfolio_url;
+});
+
+for (const ex of examples) {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "chip"; b.textContent = ex;
+  b.onclick = () => { $("q").value = ex; $("form").requestSubmit(); };
+  $("examples").appendChild(b);
+}
+
+function el(tag, cls, text) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+
+function showWhy(r) {
+  $("why-empty").hidden = true; $("why").hidden = false;
+  $("conf").textContent = r.confidence.toFixed(2);
+  $("confbar").style.width = Math.round(r.confidence * 100) + "%";
+  $("confbar").style.background = r.confidence >= threshold ? "var(--accent)" : "var(--warn)";
+  $("threshold").textContent = `Handoff below ${threshold.toFixed(2)}. ${r.handoff_reason || "Confident enough to answer."}`;
+  const cited = new Set(r.citations.map(c => c.id));
+  const box = $("sources"); box.innerHTML = "";
+  for (const h of r.hits) {
+    const s = el("div", "source" + (cited.has(h.id) ? " active" : ""));
+    s.id = "src-" + h.id;
+    const head = el("div", "head");
+    head.append(el("span", "", h.id + (cited.has(h.id) ? " · cited" : "")),
+                el("span", "", `cos ${h.dense.toFixed(2)} · bm25 ${h.lexical.toFixed(1)}`));
+    s.append(head, el("b", "", h.title + " › " + h.section), el("div", "muted", h.text.slice(0, 260) + (h.text.length > 260 ? "…" : "")));
+    box.appendChild(s);
+  }
+  $("latency").textContent = `${r.mode} · ${r.latency_ms} ms`;
+}
+
+$("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const q = $("q").value.trim();
+  if (!q) return;
+  chat.appendChild(el("div", "msg user", q));
+  $("q").value = ""; $("send").disabled = true;
+  const pending = el("div", "msg bot muted", "Searching the knowledge base…");
+  chat.appendChild(pending); chat.scrollTop = chat.scrollHeight;
+  try {
+    const res = await fetch("/api/ask", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({question: q})});
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const r = await res.json();
+    pending.className = "msg bot"; pending.textContent = r.answer;
+    if (r.citations.length) {
+      const meta = el("div", "meta");
+      for (const c of r.citations) {
+        const chip = el("span", "cite", c.id); chip.title = c.citation;
+        chip.onclick = () => document.getElementById("src-" + c.id)?.scrollIntoView({behavior: "smooth", block: "center"});
+        meta.appendChild(chip);
+      }
+      pending.appendChild(meta);
+    }
+    if (r.handoff) {
+      const t = r.handoff_ticket;
+      const b = el("div", "banner " + (t.priority === "P1" ? "p1" : "handoff"),
+        `Handed off to a human · case ${t.case_id} · ${t.priority}. ${t.reason}`);
+      pending.appendChild(b);
+    }
+    showWhy(r);
+  } catch (err) {
+    pending.textContent = "Something went wrong reaching the assistant (" + err.message + "). The free server may be waking up; try again in a few seconds.";
+  } finally {
+    $("send").disabled = false; chat.scrollTop = chat.scrollHeight;
+  }
+});
+</script>
+</body>
+</html>

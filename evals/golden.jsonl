@@ -1,0 +1,36 @@
+{"id": "q01", "question": "My battery stops charging at 80 percent, is it broken?", "expected_docs": ["KB-001"], "must_include": ["Conservation"], "should_handoff": false}
+{"id": "q02", "question": "Can I charge my Aurora Book 14 with a 20W phone charger?", "expected_docs": ["KB-001"], "must_include": ["65W"], "should_handoff": false}
+{"id": "q03", "question": "How do I do a battery reset when it won't charge?", "expected_docs": ["KB-001"], "must_include": ["15 seconds"], "should_handoff": false}
+{"id": "q04", "question": "Is battery replacement covered after 18 months?", "expected_docs": ["KB-001"], "must_include": ["Premium Care"], "should_handoff": false}
+{"id": "q05", "question": "Where do I find my serial number?", "expected_docs": ["KB-002"], "must_include": ["label"], "should_handoff": false}
+{"id": "q06", "question": "What does Premier Support include?", "expected_docs": ["KB-002"], "must_include": ["next business day"], "should_handoff": false}
+{"id": "q07", "question": "My warranty expired last week, can I still extend it?", "expected_docs": ["KB-002"], "must_include": ["30 days"], "should_handoff": false}
+{"id": "q08", "question": "How many accidental damage claims can a consumer make per year?", "expected_docs": ["KB-003"], "must_include": ["one"], "should_handoff": false}
+{"id": "q09", "question": "I spilled coffee on the keyboard, what should I do?", "expected_docs": ["KB-003", "KB-010"], "must_include": ["power the device off"], "should_handoff": false}
+{"id": "q10", "question": "Does accidental damage protection cover theft?", "expected_docs": ["KB-003"], "must_include": ["theft"], "should_handoff": false}
+{"id": "q11", "question": "Blue screen INACCESSIBLE_BOOT_DEVICE after BIOS update", "expected_docs": ["KB-004"], "must_include": ["AHCI"], "should_handoff": false}
+{"id": "q12", "question": "How do I uninstall a Windows update if the laptop keeps crashing with a blue screen?", "expected_docs": ["KB-004"], "must_include": ["Uninstall"], "should_handoff": false}
+{"id": "q13", "question": "My laptop won't turn on at all, nothing happens", "expected_docs": ["KB-005"], "must_include": ["30 seconds"], "should_handoff": false}
+{"id": "q14", "question": "Where is the emergency reset pinhole on the Edge X1?", "expected_docs": ["KB-005"], "must_include": ["paperclip"], "should_handoff": false}
+{"id": "q15", "question": "Wi-Fi keeps disconnecting every few minutes", "expected_docs": ["KB-006"], "must_include": ["Power Management"], "should_handoff": false}
+{"id": "q16", "question": "Will I need my BitLocker recovery key after a BIOS update?", "expected_docs": ["KB-007"], "must_include": ["Suspend"], "should_handoff": false}
+{"id": "q17", "question": "Can support retrieve my BitLocker recovery key for me?", "expected_docs": ["KB-007"], "must_include": ["cannot"], "should_handoff": false}
+{"id": "q18", "question": "The fan is really loud during video calls, is that normal?", "expected_docs": ["KB-008"], "must_include": ["specification"], "should_handoff": false}
+{"id": "q19", "question": "How many dead pixels before the screen is replaced?", "expected_docs": ["KB-009"], "must_include": ["5 or more dark"], "should_handoff": false}
+{"id": "q20", "question": "My trackpad is raised and won't click", "expected_docs": ["KB-010", "KB-001"], "must_include": ["swollen"], "should_handoff": false}
+{"id": "q21", "question": "How long do I have to return a laptop bought from the online store?", "expected_docs": ["KB-011"], "must_include": ["30 days"], "should_handoff": false}
+{"id": "q22", "question": "Is there a restocking fee for a custom configured laptop?", "expected_docs": ["KB-011"], "must_include": ["15%"], "should_handoff": false}
+{"id": "q23", "question": "How long does a depot repair take?", "expected_docs": ["KB-012"], "must_include": ["5 to 7"], "should_handoff": false}
+{"id": "q24", "question": "Can Premier Support customers keep their old hard drive after repair?", "expected_docs": ["KB-013"], "must_include": ["Keep Your Drive"], "should_handoff": false}
+{"id": "q25", "question": "How many 4K monitors does the Dock U3 support?", "expected_docs": ["KB-014"], "must_include": ["two"], "should_handoff": false}
+{"id": "q26", "question": "What is the first response SLA for a P2 case?", "expected_docs": ["KB-015"], "must_include": ["4 hours"], "should_handoff": false}
+{"id": "q27", "question": "How do I factory reset before selling my laptop?", "expected_docs": ["KB-016"], "must_include": ["Remove everything"], "should_handoff": false}
+{"id": "q28", "question": "My battery is swollen and the case is lifting", "expected_docs": ["KB-001"], "must_include": ["stop using"], "should_handoff": true}
+{"id": "q29", "question": "There is smoke coming from the charging port", "expected_docs": ["KB-001", "KB-015"], "must_include": [], "should_handoff": true}
+{"id": "q30", "question": "Can you recommend a good pizza place near me?", "expected_docs": [], "must_include": [], "should_handoff": true}
+{"id": "q31", "question": "What is your stock price today?", "expected_docs": [], "must_include": [], "should_handoff": true}
+{"id": "q32", "question": "I want to speak to your CEO about a lawsuit", "expected_docs": [], "must_include": [], "should_handoff": true}
+{"id": "q33", "question": "Does Microsoft Office come preinstalled with a lifetime license?", "expected_docs": [], "must_include": [], "should_handoff": true}
+{"id": "q34", "question": "Can I install Linux and still keep my GPU drivers working with CUDA 13?", "expected_docs": [], "must_include": [], "should_handoff": true}
+{"id": "q35", "question": "What's the weather in Kuala Lumpur?", "expected_docs": [], "must_include": [], "should_handoff": true}
+{"id": "q36", "question": "Do you ship to Antarctica and how much is shipping to McMurdo station?", "expected_docs": [], "must_include": [], "should_handoff": true}

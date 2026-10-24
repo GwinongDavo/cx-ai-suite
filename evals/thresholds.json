@@ -1,0 +1,21 @@
+{
+  "mock": {
+    "retrieval_hit_at_3": 0.90,
+    "retrieval_mrr": 0.85,
+    "citation_precision": 0.80,
+    "answer_keyword_recall": 0.70,
+    "handoff_precision": 0.90,
+    "handoff_recall": 1.0,
+    "handoff_accuracy": 0.90
+  },
+  "live": {
+    "retrieval_hit_at_3": 0.90,
+    "retrieval_mrr": 0.85,
+    "citation_precision": 0.85,
+    "answer_keyword_recall": 0.80,
+    "handoff_precision": 0.85,
+    "handoff_recall": 1.0,
+    "handoff_accuracy": 0.90,
+    "faithfulness": 0.90
+  }
+}

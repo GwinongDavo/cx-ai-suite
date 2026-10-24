@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ticket Triage Agent</title>
+<meta name="description" content="AI agent that triages support tickets: extracts details, checks warranty, applies escalation policy and drafts replies.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/static/suite.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="topbar">
+    <div>
+      <p class="eyebrow">CX AI Suite · Project 3</p>
+      <h1>Ticket Triage Agent</h1>
+      <p class="muted">Paste a customer email or chat. The agent extracts the case details, calls the warranty API, searches the knowledge base, applies the escalation policy, and drafts a reply or a handoff.</p>
+    </div>
+    <div class="links">
+      <span id="mode" class="pill">checking…</span>
+      <a class="pill" href="/docs">API docs</a>
+      <a class="pill" id="repo" href="#">Source</a>
+    </div>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h3>Incoming message</h3>
+      <div class="chips" id="samples" style="margin:0 0 12px"></div>
+      <textarea id="text" placeholder="Paste a customer message…"></textarea>
+      <div class="row" style="margin-top:10px">
+        <select id="channel" style="width:auto"><option>email</option><option>chat</option><option>phone</option></select>
+        <button id="run">Triage ticket</button>
+      </div>
+
+      <div id="out" hidden>
+        <h2 style="margin-top:24px">Result</h2>
+        <div class="row" id="summary"></div>
+        <p class="muted small" id="sla"></p>
+        <h3 style="margin-top:16px">Draft reply</h3>
+        <pre id="reply" class="wrap"></pre>
+        <div id="handoff-wrap" hidden>
+          <h3 style="margin-top:16px">Handoff note for Level 2</h3>
+          <pre id="handoff" class="wrap"></pre>
+        </div>
+      </div>
+    </section>
+
+    <aside class="card">
+      <h3>Agent trace</h3>
+      <p class="muted small" id="trace-empty">Each step the agent takes shows up here, including tool calls and the policy rule that decided the outcome.</p>
+      <ul class="steps" id="trace"></ul>
+    </aside>
+  </div>
+
+  <section class="card" style="margin-top:18px">
+    <div class="row" style="justify-content:space-between">
+      <h3 style="margin:0">Open queue, auto-triaged</h3>
+      <button class="ghost" id="loadq">Triage the open backlog</button>
+    </div>
+    <p class="muted small" id="qmeta">A fast rules-only pass over every open ticket in the synthetic dataset, with priority accuracy measured against the labelled tickets.</p>
+    <div class="table" id="qtable" hidden><table><thead><tr><th>Ticket</th><th>Subject</th><th>Priority</th><th>Decision</th><th>Queue</th><th>Why</th></tr></thead><tbody id="qbody"></tbody></table></div>
+  </section>
+
+  <footer>Policy rules follow the synthetic escalation guide (KB-015); the LLM handles extraction and wording, the rules make the call. · <a id="portfolio" href="#">Portfolio</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
+
+fetch("/api/health").then(r => r.json()).then(h => {
+  const live = !h.mode.startsWith("demo");
+  $("mode").textContent = live ? "LLM: " + h.mode : "demo mode · no API key";
+  $("mode").className = "pill " + (live ? "live" : "demo");
+  $("repo").href = h.repo_url; $("portfolio").href = h.portfolio_url;
+});
+
+fetch("/api/samples").then(r => r.json()).then(list => {
+  list.forEach((s, i) => {
+    const b = el("button", "chip", s.label); b.type = "button";
+    b.onclick = () => { $("text").value = s.text; $("channel").value = s.channel; };
+    $("samples").appendChild(b);
+    if (i === 0) { $("text").value = s.text; }
+  });
+});
+
+$("run").onclick = async () => {
+  const text = $("text").value.trim();
+  if (text.length < 10) return;
+  $("run").disabled = true; $("run").textContent = "Working…";
+  $("trace").innerHTML = ""; $("trace-empty").hidden = true;
+  try {
+    const res = await fetch("/api/triage", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({text, channel: $("channel").value})});
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const r = await res.json();
+    $("out").hidden = false;
+    const s = $("summary"); s.innerHTML = "";
+    s.append(el("span", "badge " + r.decision, r.decision.toUpperCase()), el("span", "badge " + r.priority, r.priority),
+             el("span", "pill", r.queue), el("span", "pill mono", r.case_id));
+    $("sla").textContent = `First response due ${r.sla.first_response_due.replace("T", " ")} · resolution due ${r.sla.resolution_due.replace("T", " ")}`;
+    $("reply").textContent = r.reply;
+    $("handoff-wrap").hidden = !r.handoff_note; $("handoff").textContent = r.handoff_note || "";
+    for (const st of r.trace) {
+      const li = el("li", st.status === "ok" ? "" : st.status);
+      li.append(el("div", "t", st.name), el("div", "muted small", st.detail + (st.ms ? ` · ${st.ms} ms` : "")));
+      if (st.data && st.name.startsWith("Apply")) {
+        const ul = el("ul", "small"); st.data.forEach(x => ul.appendChild(el("li", "", x))); li.appendChild(ul);
+      } else if (st.data && !Array.isArray(st.data)) {
+        const pre = el("pre", "", JSON.stringify(st.data, null, 1)); li.appendChild(pre);
+      }
+      $("trace").appendChild(li);
+    }
+  } catch (e) {
+    alert("Triage failed (" + e.message + "). The free server may be waking up; try again in a few seconds.");
+  } finally {
+    $("run").disabled = false; $("run").textContent = "Triage ticket";
+  }
+};
+
+$("loadq").onclick = async () => {
+  $("loadq").disabled = true; $("loadq").textContent = "Triaging…";
+  const q = await (await fetch("/api/queue")).json();
+  $("qmeta").textContent = `${q.rows.length} open tickets · ${q.decisions.escalate || 0} escalated, ${q.decisions.reply || 0} auto-reply, ${q.decisions.ask || 0} need info · priority matches the labelled priority on ${(q.priority_accuracy * 100).toFixed(1)}% of ${q.n_eval} historical tickets.`;
+  const body = $("qbody"); body.innerHTML = "";
+  for (const r of q.rows) {
+    const tr = el("tr");
+    const p = el("td"); p.appendChild(el("span", "badge " + r.priority, r.priority));
+    const d = el("td"); d.appendChild(el("span", "badge " + r.decision, r.decision));
+    tr.append(el("td", "mono", r.ticket_id), el("td", "", r.subject), p, d, el("td", "", r.queue), el("td", "muted", r.reason));
+    body.appendChild(tr);
+  }
+  $("qtable").hidden = false; $("loadq").textContent = "Refresh"; $("loadq").disabled = false;
+};
+</script>
+</body>
+</html>

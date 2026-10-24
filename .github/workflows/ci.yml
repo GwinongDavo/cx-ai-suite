@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      live_evals:
+        description: "Also run evals against the real LLM (uses API credits)"
+        type: boolean
+        default: false
+
+jobs:
+  test-and-eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+
+      - name: Unit and API tests
+        run: pytest -q
+
+      - name: RAG evals (offline, quality gate)
+        run: python -m evals.run_evals --provider mock --gate
+
+      - name: Publish eval report to the job summary
+        if: always()
+        run: cat evals/results/report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-report-offline
+          path: evals/results/
+
+  live-evals:
+    # Runs on manual trigger only, so normal pushes never spend API credits.
+    if: github.event_name == 'workflow_dispatch' && inputs.live_evals
+    needs: test-and-eval
+    runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+      AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: RAG evals with LLM-as-judge (quality gate)
+        run: python -m evals.run_evals --judge --gate
+      - if: always()
+        run: cat evals/results/report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-report-live
+          path: evals/results/
