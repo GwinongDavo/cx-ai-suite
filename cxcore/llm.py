@@ -20,7 +20,7 @@ GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
 DEFAULTS = {
     "openai": {"chat": "gpt-4.1-mini", "embed": "text-embedding-3-small"},
-    "gemini": {"chat": "gemini-2.5-flash", "embed": "gemini-embedding-001"},
+    "gemini": {"chat": "gemini-3.8-flash", "embed": "gemini-embedding-001"},
     # For Azure these are *deployment names* you create in Azure AI Foundry.
     "azure": {"chat": "gpt-4.1-mini", "embed": "text-embedding-3-small"},
 }

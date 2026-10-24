@@ -56,7 +56,7 @@ git push -u origin main
    - `GEMINI_API_KEY`: your key from Step 1 (leave empty to deploy in demo mode)
    - `CX_REPO_URL`: `https://github.com/<your-username>/cx-ai-suite`
 4. Click **Apply**. Each service builds for 3–6 minutes. When they show **Live**, open each URL.
-5. Check the badge in the top corner of the assistant and triage pages: it should say `LLM: gemini:gemini-2.5-flash`
+5. Check the badge in the top corner of the assistant and triage pages: it should say `LLM: gemini:gemini-3.8-flash`
    rather than `demo mode`.
 
 **Free plan notes:** services sleep after ~15 minutes without visitors and take 30–60 seconds to wake.

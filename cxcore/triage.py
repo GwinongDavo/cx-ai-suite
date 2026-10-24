@@ -117,7 +117,8 @@ class TriageAgent:
             return rules
         try:
             data = self.llm.chat_json(EXTRACT_PROMPT, text)
-        except Exception:
+        except Exception as exc:
+            print(f"[llm] call failed, using fallback: {exc!r}", flush=True)
             return rules
         # Trust regex for the serial (exact pattern) and OR the safety flags, so the model
         # can add signals but never remove one the rules found.
@@ -186,7 +187,8 @@ class TriageAgent:
                      "kb_excerpts": [f"[{h.chunk.id}] {h.chunk.section}: {h.chunk.text}" for h in kb]}
             try:
                 return self.llm.chat_json(REPLY_PROMPT, f"Customer message:\n{text}\n\nFacts:\n{json.dumps(facts, default=str)}")["reply"]
-            except Exception:
+            except Exception as exc:
+                print(f"[llm] call failed, using fallback: {exc!r}", flush=True)
                 pass
         return self._template_reply(case_id, decision, priority, ex, w, kb)
 

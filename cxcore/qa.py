@@ -79,7 +79,8 @@ class QAScorer:
         if self.llm.live:
             try:
                 return self._llm_score(transcript)
-            except Exception:
+            except Exception as exc:
+                print(f"[llm] call failed, using fallback: {exc!r}", flush=True)
                 pass  # fall back to rules rather than fail the demo
         return self._rule_score(transcript)
 

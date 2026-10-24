@@ -105,7 +105,8 @@ class RagAssistant:
         context = "\n\n".join(f"[{h.chunk.id}] {h.chunk.title} > {h.chunk.section}\n{h.chunk.text}" for h in hits)
         try:
             data = self.llm.chat_json(SYSTEM_PROMPT, f"Knowledge base excerpts:\n{context}\n\nCustomer question: {question}")
-        except Exception:  # a bad provider response should degrade, not crash the demo
+        except Exception as exc:  # a bad provider response should degrade, not crash the demo
+            print(f"[llm] call failed, using fallback: {exc!r}", flush=True)
             return self._extractive(question, hits)
         valid = {h.chunk.id for h in hits}
         cited = [c for c in data.get("cited_ids", []) if c in valid]  # drop invented citations
