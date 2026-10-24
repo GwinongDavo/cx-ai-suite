@@ -2,7 +2,7 @@
 
 About 30–45 minutes the first time. Everything here is free.
 
-You'll end up with 4 live URLs (the eval harness lives inside the assistant at `/evals` and in GitHub Actions):
+You'll end up with 5 live URLs (the eval harness lives inside the assistant at `/evals` and in GitHub Actions):
 
 | App | Render service | Example URL |
 |-----|----------------|-------------|
@@ -10,6 +10,7 @@ You'll end up with 4 live URLs (the eval harness lives inside the assistant at `
 | Ticket Triage Agent | `cx-triage-agent` | `https://cx-triage-agent.onrender.com` |
 | SLA & Escalation Risk Dashboard | `cx-sla-dashboard` | `https://cx-sla-dashboard.onrender.com` |
 | Call & Email QA Analyzer | `cx-qa-analyzer` | `https://cx-qa-analyzer.onrender.com` |
+| AI Workforce & Demand Planner | `cx-workforce-planner` | `https://cx-workforce-planner.onrender.com` |
 
 Render adds a random suffix if a name is taken; use whatever URLs it shows you.
 
@@ -48,7 +49,7 @@ git push -u origin main
 4. Open the repo's **Actions** tab: the CI run should go green in ~2 minutes (tests + eval gate).
    Click the run to see the eval report in the summary.
 
-## Step 3: Deploy all four apps on Render (10 min + build time)
+## Step 3: Deploy all five apps on Render (10 min + build time)
 
 1. Sign up at https://render.com with **Sign in with GitHub**, and allow it to see the `cx-ai-suite` repo.
 2. Dashboard → **New** → **Blueprint** → choose `cx-ai-suite`. Render reads `render.yaml` and lists 4 web services.
@@ -61,7 +62,7 @@ git push -u origin main
 
 **Free plan notes:** services sleep after ~15 minutes without visitors and take 30–60 seconds to wake.
 Before an interview or sending a link, open each URL a minute early. The free plan has 750 instance-hours a month
-shared across services, so don't set up an uptime pinger for all four.
+shared across services, so don't set up an uptime pinger for all of them.
 
 **Optional, faster dashboards:** the two Streamlit apps can also go on https://share.streamlit.io
 (New app → repo `cx-ai-suite` → main file `apps/sla_dashboard/app.py`, then again for `apps/qa_analyzer/app.py`;
